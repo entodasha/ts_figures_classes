@@ -18,7 +18,7 @@ export class Triangle implements Figure {
     public c: number,
   ) {
     if (this.a <= 0 || this.b <= 0 || this.c <= 0) {
-      throw new Error('side length can not be less or equel 0');
+      throw new Error('side length can not be less or equal 0');
     }
 
     if (
@@ -36,7 +36,7 @@ export class Triangle implements Figure {
       s * (s - this.a) * (s - this.b) * (s - this.c),
     );
 
-    return Math.round(triangleArea * 100) / 100;
+    return Math.floor(triangleArea * 100) / 100;
   }
 }
 
@@ -48,7 +48,7 @@ export class Circle implements Figure {
     public radius: number,
   ) {
     if (this.radius <= 0) {
-      throw new Error('radius can not be less or equel 0');
+      throw new Error('radius can not be less or equal 0');
     }
   }
 
@@ -68,17 +68,17 @@ export class Rectangle implements Figure {
     public height: number,
   ) {
     if (this.width <= 0 || this.height <= 0) {
-      throw new Error('side length can not be less or equel 0');
+      throw new Error('side length can not be less or equal 0');
     }
   }
 
   getArea(): number {
     const rectangleArea = this.width * this.height;
 
-    return Math.round(rectangleArea * 100) / 100;
+    return Math.floor(rectangleArea * 100) / 100;
   }
 }
 
-export function getInfo(figure): string {
+export function getInfo(figure: Figure): string {
   return `A ${figure.color} ${figure.shape} - ${figure.getArea()}`;
 }
